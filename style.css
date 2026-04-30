@@ -232,96 +232,83 @@ textarea{
 
 
 
-/*======================================== 响应式 ========================================*/
+/*======================================== 响应式布局 ========================================*/
 /*手机端现在的问题主要是：.app固定600px宽，会导致页面在手机上横向溢出，所以标题/日期/输入框都被挤到屏幕外*/
-@media (max-width: 768px){
+@media(max-width:768px){
     body{
-        min-height: 100vh;
-        overflow-x: hidden;
+        width: 100%;
+        min-height: 100vh; /*保证：页面至少撑满一整屏*/
+        overflow-x: hidden; /*隐藏横向溢出的内容*/
     }
 
     .app{
-        width: 100%;
-        min-height: 100vh;
-        padding: 32px 18px;
+    width: 100%;  /*让.app宽度等于屏幕宽度*/
+    min-height: 100vh; /*让.app至少撑满一屏高度*/
+    padding: 32px 18px; /*手机端页面上下留32px，左右留18px*/
     }
 
     .app>h1{
-        font-size: 40px;
-        margin-bottom: 26px;
-        text-align: left;
-        word-break: keep-all;
+    font-size: 40px;
+    margin-bottom: 26px;
+    text-align: left; /*左对齐*/
+    word-break: keep-all; /*不拆开单词*/
     }
 
     .input-header{
-        flex-direction: column;
-        align-items: stretch;
-        gap: 18px;
-        margin-bottom: 24px;
+    flex-direction: column; /*桌面端是水平布局，手机端改成纵向布局避免溢出*/
+    align-items: stretch;  /*让子元素（包含日期date和todo-input）在横向上拉伸，占满父容器宽度*/
+    gap: 18px;
+    margin-bottom: 24px;
     }
 
     .input-header h1{
-        font-size: 28px;
-        white-space: nowrap;
+    font-size: 28px;
+    white-space: nowrap;
     }
 
-    .todo-input{
-        width: 100%;
-        display: flex;
+    .todo-input{  /*.todo-input是输入框和按钮的父容器*/
+    width: 100%;  /*让输入区域占满父容器宽度*/
+    display: flex;
     }
 
-    #item{
-        width: 100%;
-        flex: 1;
-        min-width: 0;
-        height: 46px;
-        font-size: 18px;
+    #item{     /*#item是输入框*/
+    flex: 1;   /*表示输入框占据剩余空间*/
+    min-width: 0; /*表示输入框是可以被真正缩小的*/
+    height: 46px;
+    font-size: 18px;
     }
 
-    #enter{
-        flex-shrink: 0;
-        height: 46px;
-        padding: 0 16px;
-        font-size: 18px;
+    #enter{ /*#enter是右侧按钮*/
+    flex-shrink: 0; /*不允许按钮被压缩，保留最小可点击尺寸*/
+    height: 46px;
+    padding: 0 16px; /*注意按钮的宽度由文本内容和padding共同撑开*/
+    font-size: 18px;
     }
 
-    .todo-list{
-        gap: 14px;
-    }
-
-    #items,
-    .item{
-        padding: 14px;
-        border-radius: 14px;
-    }
-
-    .input-controller{
-        gap: 10px;
+    #items{
+    padding: 14px;
+    border-radius: 14px;
     }
 
     .input-controller textarea{
-        flex: 1;
-        min-width: 0;
-        font-size: 1.15rem;
-        min-height: 52px;
-    }
-
-    .edit-controller{
-        gap: 6px;
+    flex: 1;
+    min-width: 0; /*允许textarea在flex容器里缩小，避免把图标挤出屏幕*/
+    font-size: 1.15rem; /*1rem = 16px*/
+    min-height: 52px;   /*min-height保证文本框不会被挤压地太矮*/
     }
 
     .edit-controller i{
-        width: 28px;
-        height: 28px;
-        font-size: 15px;
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
     }
 
     .update-controller{
-        margin-top: 12px;
+    margin-top: 12px;
     }
 
     .update-controller button{
-        padding: 8px 14px;
-        font-size: 15px;
+    padding: 8px 14px;
+    font-size: 15px;
     }
 }
