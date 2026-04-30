@@ -1,18 +1,20 @@
+/*CSS必做基础重置*/
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/*给整个网页主体设置样式*/
 body{
     min-height: 100vh;
-    background: radial-gradient(
+    background: radial-gradient(  /*径向渐变*/
         ellipse at center,
         rgba(48,64,64,1) 0%,
         rgba(0,0,0,1) 100%
     );
     color: white;
-    font-family: "shadows Into Light",cursive;
+    font-family: "Shadows Into Light",cursive;
 }
 
 button,
@@ -41,26 +43,25 @@ textarea{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 24px;
+    gap: 24px;          /*设置flex子元素之间的间距：这里是日期和输入框之间至少间距24px*/
     margin-bottom: 26px;
     padding-bottom: 18px;
-    border-bottom: 1px solid rgba(201,209,200,0,22);
+    border-bottom: 1px solid rgba(201,209,200,0.22);
 }
 
 .input-header h1{
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 400;
     color: #c9d1c8;
-    white-space: nowrap;
+    white-space: nowrap;  /*不允许文字自动换行*/
 }
 
 .todo-input{
     display: flex;
     flex: 1;
-    justify-content: flex-end;
+    justify-content: flex-end;/*让flex容器里的子元素沿主轴方向靠末尾对齐*/
 }
 
-.todo-input input,
 #item{
     width: 280px;
     height: 42px;
@@ -74,12 +75,14 @@ textarea{
     font-size: 18px;
 }
 
-.todo-input input::placeholder,
-#item::placeholder{
+#item:focus{
+    box-shadow: 0 0 8px rgba(201, 209, 200, 0.85);
+}
+
+#item::placeholder{  /*设置输入框里的placeholder占位提示文字的颜色：*/
     color: rgba(4, 32, 44, 0.55);
 }
 
-.todo-input button,
 #enter{
     height: 42px;
     padding: 0 18px;
@@ -93,7 +96,6 @@ textarea{
     transition: 0.2s ease;
 }
 
-.todo-input button:hover,
 #enter:hover{
     background: #ffffff;
     transform: translateY(-1px);
@@ -101,13 +103,13 @@ textarea{
 
 .todo-list{
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  /*决定任务123...是垂直排列的*/
     gap: 15px;
 }
 
 #items{
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /*决定每个任务里的内容（input-controller和update-controller）是垂直排列的*/
     gap: 12px;
     padding: 14px;
     border-radius: 14px;
@@ -129,26 +131,26 @@ textarea{
 }
 
 .input-controller textarea{
-    width: 100%;
-    min-height: 54px;
+    flex: 1;         /*占据剩余空间*/
+    min-height: 54px;/*意味着即使任务内容很短，textarea也不会太矮*/
     padding: 8px 10px;
     outline: none;
     border: none;
-    resize: none;
+    resize: none;   /*禁止用户手动拖拽调整textarea大小（默认情况下，textarea右下角有一个小拖拽点）*/
     line-height: 1.4;
     color: white;
     border-radius: 10px;
-    background-color: transparent;
+    background-color: transparent; /*设置背景透明，直接显示父级元素的背景色，使其更像是“文字”，而不是一个普通输入框*/
     font-size: 1.25rem;
     transition: 0.25s ease;
 }
 
-.input-controller textarea:disabled{
+.input-controller textarea:disabled{ /*在设置被禁用的textarea的样式*/
     opacity: 1;
     cursor: default;
 }
 
-.input-controller textarea:not(:disabled){
+.input-controller textarea:not(:disabled){ /*在设置没被禁用的textarea的样式*/
     background-color: rgba(255, 255, 255, 0.08);
     box-shadow: 0 0 6px rgba(201, 209, 200, 0.75);
 }
@@ -163,8 +165,7 @@ textarea{
     padding-top: 8px;
 }
 
-.edit-controller i,
-.todo-list i{
+.edit-controller i{
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -182,10 +183,6 @@ textarea{
     transform: scale(1.1);
 }
 
-.editBtn,
-.todo-list .fa-pen-to-square{
-    color: #8aa69b;
-}
 
 .editBtn:hover{
     color: #c9d1c8;
@@ -194,7 +191,7 @@ textarea{
 }
 
 .update-controller{
-    display: none;
+    display: none;  /*重要！！隐藏*/
     padding-left: 2px;
 }
 
@@ -210,17 +207,25 @@ textarea{
     transition: 0.2s ease;
 }
 
-.update-controller button:hover{
-    background: #ffffff;
-    transform: translateY(-1px);
-}
-
 .saveBtn{
     background: #c9d1c8;
+}
+
+.saveBtn:hover{
+    background:  #d9f7d0;
+    color:  #2f6b2f;
+    transform: translateY(-1px);
 }
 
 .cancelBtn{
     background: rgba(201, 209, 200, 0.18);
     color: #c9d1c8;
     border: 1px solid rgba(201, 209, 200, 0.35);
+}
+
+.cancelBtn:hover{
+    background: rgba(243, 179, 213, 0.35);
+    color: #ffb6c1;
+    border-color: rgba(201,209,200,0.75);
+    transform: translateY(-1px);
 }

@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>myTODO-list</title>
     <link rel="stylesheet" href="style.css">
+    <!--删除（完成）按钮与编辑按钮icon-链接-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <!--GoogleFonts-->
+    <!--GoogleFonts-链接-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -15,7 +16,7 @@
     <main class="app">
         <h1>My Todo List...</h1>
         <div class="input-header">
-            <h1><span id="date"><!--这里的日期内容再js里用innerHTML显示--></span></h1>
+            <h1><span id="date"><!--这里的日期内容在js里用innerHTML显示--></span></h1>
             <div class="todo-input">
                 <input type="text" id="item" placeholder="Enter the task...">
                 <button id="enter">Enter</button>
@@ -26,3 +27,18 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
+                    <div id="items">
+                        <div class="input-controller">
+                            <textarea disabled>${itemsArray[i]}</textarea>
+                            <div class="edit-controller">
+                                <i class="fa-solid fa-check deleteBtn"></i>
+                                <i class="fa-solid fa-pen-to-square editBtn"></i>
+                            </div>
+                        </div>
+                        <div class="update-controller">
+                            <button class="saveBtn">Save</button>
+                            <button class="cancelBtn">Cancel</button>
+                        </div>
+                   </div>
