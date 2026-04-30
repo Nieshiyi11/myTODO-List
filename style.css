@@ -1,8 +1,226 @@
 *{
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
+
+body{
+    min-height: 100vh;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(48,64,64,1) 0%,
+        rgba(0,0,0,1) 100%
+    );
+    color: white;
+    font-family: "shadows Into Light",cursive;
+}
+
+button,
+input,
+textarea{
+    font-family: inherit; /*继承body的字体*/
+}
+
+.app{
+    width: 600px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 50px 0;
+    color: white;
+}
+
+.app>h1{
+    font-size: 48px;
+    margin-bottom: 22px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(201,209,200,0.35);
+}
+
+.input-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 26px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(201,209,200,0,22);
+}
+
+.input-header h1{
+    font-size: 24px;
+    font-weight: 400;
+    color: #c9d1c8;
+    white-space: nowrap;
+}
+
+.todo-input{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.todo-input input,
+#item{
+    width: 280px;
+    height: 42px;
+    padding: 0 14px;
+    border: none;
+    outline: none;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #04202c;
+    font-size: 18px;
+}
+
+.todo-input input::placeholder,
+#item::placeholder{
+    color: rgba(4, 32, 44, 0.55);
+}
+
+.todo-input button,
+#enter{
+    height: 42px;
+    padding: 0 18px;
+    border: none;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background: #c9d1c8;
+    color: #04202c;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.todo-input button:hover,
+#enter:hover{
+    background: #ffffff;
+    transform: translateY(-1px);
+}
+
+.todo-list{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#items{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 14px;
+    background-color: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(201, 209, 200, 0.12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    transition: 0.2s ease;
+}
+
+#items:hover{
+    border-color: rgba(201, 209, 200, 0.35);
+    background-color: rgba(0, 0, 0, 0.48);
+}
+
+.input-controller{
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.input-controller textarea{
+    width: 100%;
+    min-height: 54px;
+    padding: 8px 10px;
+    outline: none;
+    border: none;
+    resize: none;
+    line-height: 1.4;
+    color: white;
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: 1.25rem;
+    transition: 0.25s ease;
+}
+
+.input-controller textarea:disabled{
+    opacity: 1;
+    cursor: default;
+}
+
+.input-controller textarea:not(:disabled){
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 6px rgba(201, 209, 200, 0.75);
+}
+
+.input-controller textarea:focus{
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.85);
+}
+
+.edit-controller{
+    display: flex;
+    gap: 8px;
+    padding-top: 8px;
+}
+
+.edit-controller i,
+.todo-list i{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c9d1c8;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.deleteBtn:hover{
+    color: #7ee787;
+    background: rgba(126, 231, 135, 0.12);
+    transform: scale(1.1);
+}
+
+.editBtn,
+.todo-list .fa-pen-to-square{
+    color: #8aa69b;
+}
+
+.editBtn:hover{
+    color: #c9d1c8;
+    background: rgba(201, 209, 200, 0.12);
+    transform: scale(1.1);
+}
+
 .update-controller{
     display: none;
+    padding-left: 2px;
+}
+
+.update-controller button{
+    padding: 8px 16px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 10px;
+    background: #c9d1c8;
+    color: #04202c;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.update-controller button:hover{
+    background: #ffffff;
+    transform: translateY(-1px);
+}
+
+.saveBtn{
+    background: #c9d1c8;
+}
+
+.cancelBtn{
+    background: rgba(201, 209, 200, 0.18);
+    color: #c9d1c8;
+    border: 1px solid rgba(201, 209, 200, 0.35);
 }

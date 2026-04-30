@@ -100,7 +100,8 @@ function activateCancelListener(){
     const updateController = document.querySelectorAll(".update-controller");
     const inputs = document.querySelectorAll(".input-controller textarea");
     cancelBtn.forEach(function(cb,index){
-        cancelBtn.addEventListener("click",function(){
+        cb.addEventListener("click",function(){
+            inputs[index].value = itemsArray[index]; // 恢复成原来的内容
             updateController[index].style.display = "none";  // 隐藏当前任务对应的Save/Cancel区域
             inputs[index].disabled = true;    // 让当前任务对应的textarea重新变成不可编辑
         });
